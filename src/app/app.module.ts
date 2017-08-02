@@ -1,16 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import {MdDialogModule} from '@angular/material';
+import {MaterialModule } from '@angular/material';
+import { MdNativeDateModule } from '@angular/material';
+import 'hammerjs';
 
-import { AppComponent } from './app.component';
+import { DialogResultExample } from './app.component';
+import { DialogResultExampleDialog } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    DialogResultExample,
+    DialogResultExampleDialog
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    MdNativeDateModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [DialogResultExample],
+  entryComponents: [DialogResultExampleDialog]
 })
 export class AppModule { }

@@ -1,10 +1,28 @@
 import { Component } from '@angular/core';
+import {MdDialog, MdDialogRef} from '@angular/material';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'dialog-result-example',
+  templateUrl: 'dialog-result-example.html',
 })
-export class AppComponent {
+export class DialogResultExample {
   title = 'app';
+  selectedOption: string;
+
+  constructor(public dialog: MdDialog) {}
+
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogResultExampleDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
+  }
+}
+
+@Component({
+  selector: 'dialog-result-example-dialog',
+  templateUrl: 'dialog-result-example-dialog.html',
+})
+export class DialogResultExampleDialog {
+  constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>) {}
 }
